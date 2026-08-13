@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Report Card</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            padding:30px;
+        }
+
+        .container{
+
+            width:800px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+
+        }
+
+        h1{
+
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:20px;
+
+        }
+
+        h2{
+
+            margin-top:20px;
+            margin-bottom:10px;
+            color:#333;
+
+        }
+
+        table{
+
+            width:100%;
+            border-collapse:collapse;
+            margin-top:10px;
+
+        }
+
+        table th,
+        table td{
+
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:center;
+
+        }
+
+        table th{
+
+            background:#0d6efd;
+            color:white;
+
+        }
+
+        .info p{
+
+            margin:8px 0;
+            font-size:17px;
+
+        }
+
+        .summary{
+
+            margin-top:25px;
+
+        }
+
+        .summary table{
+
+            width:60%;
+
+        }
+
+        .btn{
+
+            margin-top:30px;
+            padding:12px 20px;
+            border:none;
+            background:#198754;
+            color:white;
+            cursor:pointer;
+            font-size:16px;
+            border-radius:5px;
+
+        }
+
+        .btn:hover{
+
+            background:#157347;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Report Card</h1>
+
+<div class="info">
+
+<p><strong>Student ID :</strong> {{ student.student_id }}</p>
+
+<p><strong>Name :</strong> {{ student.name }}</p>
+
+<p><strong>Email :</strong> {{ student.email }}</p>
+
+<p><strong>Department :</strong> {{ student.department }}</p>
+
+<p><strong>Semester :</strong> {{ student.semester }}</p>
+
+</div>
+
+<h2>Subject Marks</h2>
+
+<table>
+
+<tr>
+
+<th>Subject</th>
+
+<th>Marks</th>
+
+</tr>
+
+{% for subject, marks in student.subjects.items %}
+
+<tr>
+
+<td>{{ subject }}</td>
+
+<td>{{ marks }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="summary">
+
+<h2>Performance Summary</h2>
+
+<table>
+
+<tr>
+    <th>Total</th>
+    <td>{{ total }}</td>
+</tr>
+
+<tr>
+    <th>Average</th>
+    <td>{{ average }}</td>
+</tr>
+
+<tr>
+    <th>Percentage</th>
+    <td>{{ percentage }}%</td>
+</tr>
+
+<tr>
+    <th>Highest</th>
+    <td>{{ highest }}</td>
+</tr>
+
+<tr>
+    <th>Lowest</th>
+    <td>{{ lowest }}</td>
+</tr>
+
+<tr>
+    <th>Grade</th>
+    <td>{{ grade }}</td>
+</tr>
+
+<tr>
+    <th>Result</th>
+    <td>{{ result }}</td>
+</tr>
+
+</table>
+
+</div>
+
+<center>
+
+<button class="btn" onclick="window.print()">
+Print Report
+</button>
+
+</center>
+
+</div>
+
+</body>
+
+</html>

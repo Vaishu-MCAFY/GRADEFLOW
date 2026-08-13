@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+        }
+
+        .container{
+            width:450px;
+            margin:60px auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#007BFF;
+            margin-bottom:20px;
+        }
+
+        input[type=file]{
+            width:100%;
+            padding:10px;
+            margin:20px 0;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#007BFF;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+        .success{
+            color:green;
+            text-align:center;
+            margin-top:15px;
+        }
+
+        .error{
+            color:red;
+            text-align:center;
+            margin-top:15px;
+        }
+
+        .back{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .back a{
+            text-decoration:none;
+            color:#007BFF;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Upload Student CSV</h2>
+
+    {% if success %}
+        <p class="success">{{ success }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <label><b>Select student_marks.csv</b></label>
+
+        <input
+            type="file"
+            name="csv_file"
+            accept=".csv"
+            required>
+
+        <button type="submit">
+            Upload CSV
+        </button>
+
+    </form>
+
+    <div class="back">
+        <a href="{% url 'dashboard' %}">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GradeFlow - Faculty Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#007BFF;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+header h2{
+    font-size:26px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+.card h3{
+    color:#007BFF;
+    margin-bottom:10px;
+}
+
+.card h2{
+    color:#333;
+}
+
+.menu{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    background:#007BFF;
+    padding:12px 20px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    background:#0056b3;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h2>GradeFlow - Faculty Dashboard</h2>
+
+    <nav>
+        <a href="{% url 'student_list' %}">Students</a>
+        <a href="{% url 'analytics' %}">Analytics</a>
+        <a href="{% url 'upload_csv' %}">Upload CSV</a>
+        <a href="{% url 'login' %}">Logout</a>
+        
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Students</h3>
+<h2>{{ total_students }}</h2>
+</div>
+
+<div class="card">
+<h3>Highest Marks</h3>
+<h2>{{ highest_marks }}</h2>
+</div>
+
+<div class="card">
+<h3>Lowest Marks</h3>
+<h2>{{ lowest_marks }}</h2>
+</div>
+
+<div class="card">
+<h3>Average Marks</h3>
+<h2>{{ average_marks }}</h2>
+</div>
+
+<div class="card">
+<h3>Topper</h3>
+<h2>{{ topper }}</h2>
+</div>
+
+<div class="card">
+<h3>At Risk Students</h3>
+<h2>{{ at_risk_students }}</h2>
+</div>
+
+</div>
+
+
+<div class="menu">
+
+<a href="{% url 'add_student' %}">
+Add Student
+</a>
+
+<a href="{% url 'student_list' %}">
+View Students
+</a>
+
+<a href="{% url 'analytics' %}">
+Analytics
+</a>
+
+<a href="{% url 'upload_csv' %}">
+    Upload CSV
+</a>
+
+<a href="{% url 'student_api' %}">
+Student API
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

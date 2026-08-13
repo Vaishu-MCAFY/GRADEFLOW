@@ -1,0 +1,4 @@
+student_id,name,email,python,java,dbms,percentage,rank
+ST101,Amit,amit@gmail.com,85,90,88,87.67,2
+ST102,Priya,priya@gmail.com,95,91,93,93.00,1
+ST103,Rohan,rohan@gmail.com,45,50,40,45.00,3
